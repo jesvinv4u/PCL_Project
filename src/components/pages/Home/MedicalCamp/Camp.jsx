@@ -3,7 +3,7 @@ const Camp = ({ camp }) => {
     const { CampName, Image, CampFees, ScheduledDateTime, VenueLocation, SpecializedServices, HealthcareProfessionals, TargetAudience } = camp;
 
     return (
-        <div className="card w-96 bg-base-100 shadow-xl">
+        <div className="card w-96 bg-base-100 shadow-xl border border-blue-500 mb-12">
             <figure><img className="h-56" src={Image} /></figure>
             <div className="card-body">
                 <h2 className="card-title">
