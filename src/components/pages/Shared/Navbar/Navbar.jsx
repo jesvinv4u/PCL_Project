@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from '../../../../assets/logo.png';
+import { FaBriefcaseMedical } from "react-icons/fa6";
 
 const Navbar = () => {
 
@@ -8,8 +8,6 @@ const Navbar = () => {
         <li><Link to="">Available Camps</Link></li>
         <li><Link to="">Dashboard</Link></li>
         <li><Link to="">Contact Us</Link></li>
-        <li><Link to="">Register</Link></li>
-        <li><Link to="">Login</Link></li>
     </>
 
     return (
@@ -24,15 +22,19 @@ const Navbar = () => {
                             {navOptions}
                         </ul>
                     </div>
-                    <img  className='h-14' src={logo} alt="" />
+                    <div className="flex gap-2">
+                        <FaBriefcaseMedical className="w-12 h-12" />
+                        <p className="font-bold uppercase italic">Medical <br /> Camp</p>
+                    </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         {navOptions}
                     </ul>
                 </div>
-                <div className="navbar-end">
-                    <a className="btn">Get started</a>
+                <div className="flex navbar-end gap-6">
+                    <Link to="">Register</Link>
+                    <Link to="">Login</Link>
                 </div>
             </div>
         </>
