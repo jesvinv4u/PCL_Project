@@ -1,7 +1,7 @@
 [
     {
       "CampName": "Health Wellness Camp",
-      "Image": "wellness_camp.jpg",
+      "Image": "https://i.postimg.cc/RFjNvM2V/1.png",
       "CampFees": "$20",
       "ScheduledDateTime": "2024-03-15 09:00 AM",
       "VenueLocation": "City Park",
@@ -11,7 +11,7 @@
     },
     {
       "CampName": "Dental Care Day",
-      "Image": "dental_camp.jpg",
+      "Image": "https://i.postimg.cc/J0ZtnfW3/2.png",
       "CampFees": "$15",
       "ScheduledDateTime": "2024-04-10 10:30 AM",
       "VenueLocation": "Community Center",
@@ -21,7 +21,7 @@
     },
     {
       "CampName": "Women's Wellness Expo",
-      "Image": "womens_health_camp.jpg",
+      "Image": "https://i.postimg.cc/QxgHrZmh/3.png",
       "CampFees": "Free",
       "ScheduledDateTime": "2024-05-20 02:00 PM",
       "VenueLocation": "Women's Community Center",
@@ -31,7 +31,7 @@
     },
     {
       "CampName": "Kids Health Fair",
-      "Image": "pediatric_camp.jpg",
+      "Image": "https://i.postimg.cc/KcM1JMgK/4.png",
       "CampFees": "$10",
       "ScheduledDateTime": "2024-06-12 11:00 AM",
       "VenueLocation": "Children's Hospital",
@@ -41,17 +41,17 @@
     },
     {
       "CampName": "Heart Health Day",
-      "Image": "cardiac_camp.jpg",
+      "Image": "https://i.postimg.cc/MKJv4py9/5.png",
       "CampFees": "$25",
       "ScheduledDateTime": "2024-07-08 08:30 AM",
       "VenueLocation": "Cardiac Center",
       "SpecializedServices": ["ECG Testing", "Cholesterol Screening", "Cardiac Consultation"],
       "HealthcareProfessionals": ["Dr. Martinez (Cardiologist)", "Cardiac Nurse Adams"],
-      "TargetAudience": "Adults at Risk for Heart Disease"
+      "TargetAudience": "Adults"
     },
     {
       "CampName": "Vision Wellness Clinic",
-      "Image": "eye_camp.jpg",
+      "Image": "https://i.postimg.cc/g2YrzttR/6.png",
       "CampFees": "$18",
       "ScheduledDateTime": "2024-08-25 01:00 PM",
       "VenueLocation": "Eye Care Center",
