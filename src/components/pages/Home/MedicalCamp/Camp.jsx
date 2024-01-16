@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
+
 const Camp = ({ camp }) => {
 
-    const { CampName, Image, CampFees, ScheduledDateTime, VenueLocation, SpecializedServices, HealthcareProfessionals, TargetAudience } = camp;
+    const { _id, CampName, Image, CampFees, ScheduledDateTime, VenueLocation, SpecializedServices, HealthcareProfessionals, TargetAudience } = camp;
 
     return (
         <div className="card w-96 bg-base-100 shadow-xl border border-blue-500 mb-12">
@@ -19,7 +21,7 @@ const Camp = ({ camp }) => {
                     <div className="badge badge-outline bg-blue-500 font-semibold text-white p-4">Location: {VenueLocation}</div>
                     <div className="badge badge-outline bg-blue-500 font-semibold text-white p-4">Schedule: {ScheduledDateTime}</div>
                 </div>
-                <button className="btn btn-outline">Details</button>
+                <Link to={`/camp-details/${_id}`}><button className="btn btn-outline">Details</button></Link>
             </div>
         </div>
     );
