@@ -1,7 +1,27 @@
 import { Link } from "react-router-dom";
 import { FaBriefcaseMedical } from "react-icons/fa6";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Navbar = () => {
+
+    const { user, logOut, googleSignIn } = useContext(AuthContext);
+
+    const handleGoogleSignIn = () => {
+        googleSignIn()
+            .then(result => {
+                console.log(result.user);
+            })
+            .catch(error => {
+                console.error(error);
+            })
+    }
+
+    const handleLogout = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.log(error))
+    }
 
     const navOptions = <>
         <li><Link to="/">Home</Link></li>
@@ -32,9 +52,29 @@ const Navbar = () => {
                         {navOptions}
                     </ul>
                 </div>
-                <div className="flex navbar-end gap-6">
-                    <Link to="/signUp">Register</Link>
-                    <Link to="/login">Login</Link>
+                <div className="flex navbar-end">
+                    {
+                        user ?
+                            <>
+                                <div className="flex items-center">
+                                    <p>{user.email}</p>
+                                    <img className="rounded-full w-12 h-12 ml-1" alt="" src={user.photoURL} />
+                                </div>
+                                <button className="btn btn-outline bg-white font-bold text-sm text-black" onClick={handleLogout}>Log out</button>
+                            </>
+                            :
+                            <>
+                                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                    <div className="rounded-full border border-black">
+                                        <img alt="" src='https://i.postimg.cc/nVqxVd0Y/user.png' />
+                                    </div>
+                                </label>
+                                <Link className="btn btn-outline bg-white font-bold text-sm text-black" to='/login'>Login</Link>
+                            </>
+                    }
+                    <div className="">
+                        <button onClick={handleGoogleSignIn} className="btn btn-outline bg-white font-bold text-sm text-black">Google</button>
+                    </div>
                 </div>
             </div>
         </>
