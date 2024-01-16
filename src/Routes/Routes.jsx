@@ -6,6 +6,7 @@ import Home from "../components/pages/Home/Home/Home";
 import CampDetails from "../components/pages/Home/CampDetails/CampDetails";
 import AvailableCamps from "../components/pages/Home/AvailableCamps/AvailableCamps";
 import SignUp from "../components/pages/SignUp/SignUp";
+import Login from "../components/pages/Login/Login";
 
 
   export const router = createBrowserRouter([
@@ -18,8 +19,12 @@ import SignUp from "../components/pages/SignUp/SignUp";
             element: <Home></Home>
         },
         {
-            path: 'signUp',
-            element: <SignUp></SignUp>
+          path: 'signUp',
+          element: <SignUp></SignUp>
+        },
+        {
+            path: 'login',
+            element: <Login></Login>
         },
         {
             path: 'camp-details/:id',

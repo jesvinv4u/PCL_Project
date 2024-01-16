@@ -18,12 +18,12 @@ const Login = () => {
 
         signIn(email, password)
             .then(res => {
+                console.log(res.user);
                 if (res.user) {
-                    console.log('user added to the database')
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
-                        title: 'User created successfully.',
+                        title: 'Login successfully.',
                         showConfirmButton: false,
                         timer: 1500
                     });
@@ -37,7 +37,7 @@ const Login = () => {
 
     return (
         <div className="hero min-h-screen bg-base-200 p-10">
-            <div className="card shrink-0 w-full max-w-xl shadow-2xl bg-base-100">
+            <div className="card shrink-0 w-full max-w-xl shadow-2xl bg-base-100 mt-20">
                 <div className="card-body">
                     <h1 className="text-3xl text-center font-bold">Login</h1>
                     <form onSubmit={handleLogin}>
