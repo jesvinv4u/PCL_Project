@@ -5,6 +5,7 @@ import Main from "../Layout/Main";
 import Home from "../components/pages/Home/Home/Home";
 import CampDetails from "../components/pages/Home/CampDetails/CampDetails";
 import AvailableCamps from "../components/pages/Home/AvailableCamps/AvailableCamps";
+import SignUp from "../components/pages/SignUp/SignUp";
 
 
   export const router = createBrowserRouter([
@@ -15,7 +16,11 @@ import AvailableCamps from "../components/pages/Home/AvailableCamps/AvailableCam
         {
             path: '/',
             element: <Home></Home>
-        }, 
+        },
+        {
+            path: 'signUp',
+            element: <SignUp></SignUp>
+        },
         {
             path: 'camp-details/:id',
             element: <CampDetails></CampDetails>,
