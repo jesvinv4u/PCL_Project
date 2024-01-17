@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useContext } from 'react';
@@ -8,13 +8,17 @@ import Swal from 'sweetalert2';
 const Login = () => {
 
     const { signIn } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
 
     const handleLogin = e => {
         e.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log( email, password);
+        console.log(email, password);
 
         signIn(email, password)
             .then(res => {
@@ -27,6 +31,7 @@ const Login = () => {
                         showConfirmButton: false,
                         timer: 1500
                     });
+                    navigate(from, { replace: true });
                 }
             })
             .catch(error => {
