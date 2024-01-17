@@ -45,10 +45,10 @@ const CampDetails = () => {
         const phone = form.phone.value;
         const fee = form.fee.value;
         const health = form.health.value;
-        console.log(name, age, gender, phone, fee, health);
+        const campInfo = { name, age, gender, phone, fee, health };
+        console.log(campInfo);
 
         if (user && user.email) {
-            const campInfo = { name, age, gender, phone, fee, health };
             axios.post('http://localhost:5000/addCamp', campInfo)
                 .then(res => {
                     console.log(res.data);
