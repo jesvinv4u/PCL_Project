@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import React from 'react';
 import Modal from 'react-modal';
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
+import useCamp from "../../../../Hooks/useCamp";
 
 const customStyles = {
     content: {
@@ -35,7 +36,7 @@ const CampDetails = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const axiosSecure = useAxiosSecure();
-    // const { Image, CampName, VenueLocation, TargetAudience, PurposeDescription, BenefitsDescription } = detail;
+    const [, refetch] = useCamp();
 
     const handleAddToCart = event => {
         event.preventDefault();
@@ -47,13 +48,11 @@ const CampDetails = () => {
         const fee = form.fee.value;
         const health = form.health.value;
         const campInfo = { name, age, gender, phone, fee, health };
-        console.log(campInfo);
 
         if (user && user.email) {
             axiosSecure.post('/addCamp', campInfo)
                 .then(res => {
-                    console.log(res.data);
-                    if(res.data.insertedId){
+                    if (res.data.insertedId) {
                         Swal.fire({
                             position: 'top-end',
                             icon: 'success',
@@ -61,9 +60,11 @@ const CampDetails = () => {
                             showConfirmButton: false,
                             timer: 2000
                         });
+                        refetch();
                     }
                 })
-        } else {
+        } 
+        else {
             Swal.fire({
                 title: "Are you sure?",
                 text: "You won't be able to revert this!",
@@ -96,7 +97,7 @@ const CampDetails = () => {
                         <h1 className="mb-5 text-2xl font-bold">Audience : {detail.TargetAudience}</h1>
                         <p className="mb-5 font-bold">Description : {detail.PurposeDescription}</p>
                         <p className="font-bold">Benefits : {detail.BenefitsDescription}</p>
-                <button className="btn bg-blue-800 mx-auto block my-10" onClick={openModal}>Join Camp</button>
+                        <button className="btn bg-blue-800 mx-auto block my-10" onClick={openModal}>Join Camp</button>
                     </div>
                 </div>
             </div>
