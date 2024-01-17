@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { FaBriefcaseMedical } from "react-icons/fa6";
+import { FaBriefcaseMedical, FaNotesMedical } from "react-icons/fa6";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 
@@ -28,11 +28,19 @@ const Navbar = () => {
         <li><Link to="/availableCamps">Available Camps</Link></li>
         <li><Link to="">Dashboard</Link></li>
         <li><Link to="">Contact Us</Link></li>
+        <li>
+            <Link to="/">
+                <button className="btn">
+                    <FaNotesMedical className="mr-2 text-xl"></FaNotesMedical>
+                    <div className="badge badge-secondary">+99</div>
+                </button>
+            </Link>
+        </li>
     </>
 
     return (
         <>
-            <div className="navbar fixed z-10 bg-opacity-50 max-w-screen-xl  bg-black text-white">
+            <div className="navbar fixed z-10 bg-opacity-50 max-w-screen-xl bg-black text-white">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -64,17 +72,12 @@ const Navbar = () => {
                             </>
                             :
                             <>
-                                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                                    <div className="rounded-full border border-black">
-                                        <img alt="" src='https://i.postimg.cc/nVqxVd0Y/user.png' />
-                                    </div>
-                                </label>
                                 <Link className="btn btn-outline bg-white font-bold text-sm text-black" to='/login'>Login</Link>
+                                <div className="">
+                                    <button onClick={handleGoogleSignIn} className="btn btn-outline bg-white font-bold text-sm text-black">Google</button>
+                                </div>
                             </>
                     }
-                    <div className="">
-                        <button onClick={handleGoogleSignIn} className="btn btn-outline bg-white font-bold text-sm text-black">Google</button>
-                    </div>
                 </div>
             </div>
         </>

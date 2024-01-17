@@ -52,6 +52,15 @@ const CampDetails = () => {
             axios.post('http://localhost:5000/addCamp', campInfo)
                 .then(res => {
                     console.log(res.data);
+                    if(res.data.insertedId){
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Camp Added Successfully',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    }
                 })
         } else {
             Swal.fire({
@@ -86,11 +95,11 @@ const CampDetails = () => {
                         <h1 className="mb-5 text-2xl font-bold">Audience : {detail.TargetAudience}</h1>
                         <p className="mb-5 font-bold">Description : {detail.PurposeDescription}</p>
                         <p className="font-bold">Benefits : {detail.BenefitsDescription}</p>
+                <button className="btn bg-blue-800 mx-auto block my-10" onClick={openModal}>Join Camp</button>
                     </div>
                 </div>
             </div>
             <div>
-                <button className="btn mx-auto block my-10" onClick={openModal}>Open Modal</button>
                 <Modal
                     isOpen={modalIsOpen}
                     onRequestClose={closeModal}
@@ -98,7 +107,7 @@ const CampDetails = () => {
                     contentLabel="Example Modal"
                 >
                     <form onSubmit={handleAddToCart}>
-                        <div className="grid grid-cols-3">
+                        <div className="grid grid-cols-3 gap-2">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Name</span>
@@ -137,15 +146,14 @@ const CampDetails = () => {
                             </div>
                         </div>
                         <div className="form-control mt-6">
-                            <input className="btn btn-primary" type="submit" value="Join Camp" />
+                            <input className="btn btn-primary" type="submit" value="Register" />
                         </div>
                     </form>
 
 
 
-                    <div className="flex justify-end items-center">
-                        <button className="btn" onClick={closeModal}>close</button>
-                        {/* <button onClick={() => handleAddToCart(detail)} className="btn btn-primary">Join Camp</button> */}
+                    <div className="flex justify-center items-center my-3">
+                        <button className="btn" onClick={closeModal}>Close</button>
                     </div>
                 </Modal>
             </div>
