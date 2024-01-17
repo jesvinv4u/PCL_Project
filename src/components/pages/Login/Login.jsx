@@ -29,7 +29,7 @@ const Login = () => {
                         icon: 'success',
                         title: 'Login successfully.',
                         showConfirmButton: false,
-                        timer: 1500
+                        timer: 2000
                     });
                     navigate(from, { replace: true });
                 }

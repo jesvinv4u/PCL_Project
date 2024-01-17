@@ -3,7 +3,7 @@ import useAuth from "../../../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import React from 'react';
 import Modal from 'react-modal';
-import axios from "axios";
+import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 
 const customStyles = {
     content: {
@@ -34,6 +34,7 @@ const CampDetails = () => {
     const { user } = useAuth();
     const navigate = useNavigate();
     const location = useLocation();
+    const axiosSecure = useAxiosSecure();
     // const { Image, CampName, VenueLocation, TargetAudience, PurposeDescription, BenefitsDescription } = detail;
 
     const handleAddToCart = event => {
@@ -49,7 +50,7 @@ const CampDetails = () => {
         console.log(campInfo);
 
         if (user && user.email) {
-            axios.post('http://localhost:5000/addCamp', campInfo)
+            axiosSecure.post('/addCamp', campInfo)
                 .then(res => {
                     console.log(res.data);
                     if(res.data.insertedId){
@@ -58,7 +59,7 @@ const CampDetails = () => {
                             icon: 'success',
                             title: 'Camp Added Successfully',
                             showConfirmButton: false,
-                            timer: 1500
+                            timer: 2000
                         });
                     }
                 })

@@ -2,10 +2,12 @@ import { Link } from "react-router-dom";
 import { FaBriefcaseMedical, FaNotesMedical } from "react-icons/fa6";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
+import useCamp from "../../../../Hooks/useCamp";
 
 const Navbar = () => {
 
     const { user, logOut, googleSignIn } = useContext(AuthContext);
+    const [camp] = useCamp();
 
     const handleGoogleSignIn = () => {
         googleSignIn()
@@ -32,7 +34,7 @@ const Navbar = () => {
             <Link to="/">
                 <button className="btn">
                     <FaNotesMedical className="mr-2 text-xl"></FaNotesMedical>
-                    <div className="badge badge-secondary">+99</div>
+                    <div className="badge bg-blue-800">+{camp.length}</div>
                 </button>
             </Link>
         </li>

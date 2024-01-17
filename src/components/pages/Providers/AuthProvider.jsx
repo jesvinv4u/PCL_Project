@@ -35,7 +35,7 @@ const AuthProvider = ({ children }) => {
             icon: 'success',
             title: 'Log Out Successfully.',
             showConfirmButton: false,
-            timer: 1500
+            timer: 2000
         });
         return signOut(auth);
     }
