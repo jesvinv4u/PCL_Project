@@ -31,7 +31,7 @@ const Navbar = () => {
         <li><Link to="">Dashboard</Link></li>
         <li><Link to="">Contact Us</Link></li>
         <li>
-            <Link to="/">
+            <Link to="/dashboard/ourCamp">
                 <button className="btn">
                     <FaNotesMedical className="mr-2 text-xl"></FaNotesMedical>
                     <div className="badge bg-blue-800">+{camp.length}</div>
