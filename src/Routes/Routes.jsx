@@ -10,6 +10,7 @@ import Login from "../components/pages/Login/Login";
 import Dashboard from "../Layout/Dashboard";
 import OurCamp from "../components/pages/Home/CampDetails/ourCamp";
 import AddCamp from "../components/pages/AddCamp/AddCamp";
+import ManageCamp from "../components/pages/ManageCamp/ManageCamp";
 
 
 export const router = createBrowserRouter([
@@ -51,6 +52,10 @@ export const router = createBrowserRouter([
       {
         path: 'add-a-camp',
         element: <AddCamp></AddCamp>
+      },
+      {
+        path: 'manage-camps',
+        element: <ManageCamp></ManageCamp>
       },
     ]
   },

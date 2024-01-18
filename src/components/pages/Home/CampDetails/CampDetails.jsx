@@ -1,4 +1,4 @@
-import { useLoaderData, useLocation, useNavigate } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import useAuth from "../../../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import React from 'react';
@@ -33,8 +33,6 @@ const CampDetails = () => {
 
     const detail = useLoaderData();
     const { user } = useAuth();
-    const navigate = useNavigate();
-    const location = useLocation();
     const axiosSecure = useAxiosSecure();
     const [, refetch] = useCamp();
 
@@ -64,26 +62,6 @@ const CampDetails = () => {
                     }
                 })
         } 
-        else {
-            Swal.fire({
-                title: "Are you sure?",
-                text: "You won't be able to revert this!",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "Yes, delete it!"
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    // Swal.fire({
-                    //     title: "Deleted!",
-                    //     text: "Your file has been deleted.",
-                    //     icon: "success"
-                    // });
-                    navigate('/login', { state: { from: location } });
-                }
-            });
-        }
     }
 
     return (
@@ -151,9 +129,6 @@ const CampDetails = () => {
                             <input className="btn btn-primary" type="submit" value="Register" />
                         </div>
                     </form>
-
-
-
                     <div className="flex justify-center items-center my-3">
                         <button className="btn" onClick={closeModal}>Close</button>
                     </div>
