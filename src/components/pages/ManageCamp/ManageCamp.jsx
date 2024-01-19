@@ -6,6 +6,7 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useCamp from "../../../Hooks/useCamp";
 import React from 'react';
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const ManageCamp = () => {
 
@@ -47,79 +48,71 @@ const ManageCamp = () => {
     }
 
     return (
-        <div className="">
-            Item Count : {addCamp.length}
-            <div className="overflow-x-auto">
-                <table className="table  w-full">
-                    {/* head */}
-                    <thead>
-                        <tr>
-                            <th>Update</th>
-                            <th>Action</th>
-                            <th>Image</th>
-                            <th>Name</th>
-                            <th>Price</th>
-                            <th>venue</th>
-                            <th>service</th>
-                            <th>health</th>
-                            <th>audience</th>
-                            <th>description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            addCamp.map(item => <tr key={item._id}>
-                                <th>
-
-
-
-                                    <Link to={`/dashboard/update-camp/${item._id}`}>
-                                        <GiUpgrade />
-                                    </Link>
-
-
-
-
-
-                                </th>
-
-
-
-
-
-                                <th>
-                                    <button
-                                        onClick={() => handleDelete(item._id)}
-                                        className="btn btn-ghost btn-lg">
-                                        <FaTrashArrowUp className="text-red-600"></FaTrashArrowUp>
-                                    </button>
-                                </th>
-                                <td>
-                                    <div className="flex items-center gap-3">
-                                        <div className="avatar">
-                                            <div className="mask mask-squircle w-12 h-12">
-                                                <img src={item.photo} alt="Avatar Tailwind CSS Component" />
+        <>
+            <Helmet>
+                <title>Medical Camp | Manage Your Own Camp</title>
+            </Helmet>
+            <div className="">
+                Item Count : {addCamp.length}
+                <div className="overflow-x-auto">
+                    <table className="table  w-full">
+                        {/* head */}
+                        <thead>
+                            <tr>
+                                <th>Update</th>
+                                <th>Action</th>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>venue</th>
+                                <th>service</th>
+                                <th>health</th>
+                                <th>audience</th>
+                                <th>description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                addCamp.map(item => <tr key={item._id}>
+                                    <th>
+                                        <Link to={`/dashboard/update-camp/${item._id}`}>
+                                            <GiUpgrade />
+                                        </Link>
+                                    </th>
+                                    <th>
+                                        <button
+                                            onClick={() => handleDelete(item._id)}
+                                            className="btn btn-ghost btn-lg">
+                                            <FaTrashArrowUp className="text-red-600"></FaTrashArrowUp>
+                                        </button>
+                                    </th>
+                                    <td>
+                                        <div className="flex items-center gap-3">
+                                            <div className="avatar">
+                                                <div className="mask mask-squircle w-12 h-12">
+                                                    <img src={item.photo} alt="Avatar Tailwind CSS Component" />
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </td>
-                                <td>{item.camp_name}</td>
-                                <td>${item.camp_fees}</td>
-                                <td>{item.venue}</td>
-                                <td>{item.service}</td>
-                                <td>{item.health}</td>
-                                <td>{item.audience}</td>
-                                <td>
-                                    {item.description.length > 10
-                                        ? item.description.slice(0, 12)
-                                        : item.description}
-                                </td>
-                            </tr>)
-                        }
-                    </tbody>
-                </table>
+                                    </td>
+                                    <td>{item.camp_name}</td>
+                                    <td>${item.camp_fees}</td>
+                                    <td>{item.venue}</td>
+                                    <td>{item.service}</td>
+                                    <td>{item.health}</td>
+                                    <td>{item.audience}</td>
+                                    <td>
+                                        {item.description.length > 10
+                                            ? item.description.slice(0, 12)
+                                            : item.description}
+                                    </td>
+                                </tr>)
+                            }
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 

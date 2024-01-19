@@ -10,7 +10,6 @@ const AddCamp = () => {
 
     const { handleSubmit, reset } = useForm();
     const { user } = useAuth();
-    const navigate = useNavigate();
     const axiosSecure = useAxiosSecure();
     const [, refetch] = useCamp();
 
@@ -48,7 +47,7 @@ const AddCamp = () => {
     return (
         <>
             <Helmet>
-                <title>Bistro Boss | Sign Up</title>
+                <title>Medical Camp | Add Your Camp</title>
             </Helmet>
             <div className=" border-blue-800">
                 <div className="mt-16">

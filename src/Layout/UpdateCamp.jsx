@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import SectionTitle from "../components/SectionTitle/SectionTitle";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const UpdateCamp = () => {
 
@@ -45,68 +46,73 @@ const UpdateCamp = () => {
     }
 
     return (
-        <div>
-            <SectionTitle
-                subHeading='Refresh Info'
-                heading='Update Camp'
-            >
-            </SectionTitle>
-            <form onSubmit={handleUpdateCamp}>
-                <div className="grid grid-cols-2 gap-2">
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Name</span>
-                        </label>
-                        <input type="text" name='camp' placeholder="Camp Name" defaultValue={camp_name} className="input input-bordered" required />
+        <>
+            <Helmet>
+                <title>Medical Camp | Update Your Camp</title>
+            </Helmet>
+            <div>
+                <SectionTitle
+                    subHeading='Refresh Info'
+                    heading='Update Camp'
+                >
+                </SectionTitle>
+                <form onSubmit={handleUpdateCamp}>
+                    <div className="grid grid-cols-2 gap-2">
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Name</span>
+                            </label>
+                            <input type="text" name='camp' placeholder="Camp Name" defaultValue={camp_name} className="input input-bordered" required />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Age</span>
+                            </label>
+                            <input type="text" name='fees' placeholder="Camp fees" defaultValue={camp_fees} className="input input-bordered" required />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Venue</span>
+                            </label>
+                            <input type="text" name='venue' placeholder="Venue" defaultValue={venue} className="input input-bordered" required />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Phone</span>
+                            </label>
+                            <input type="text" name='service' placeholder="Service" defaultValue={service} className="input input-bordered" required />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Camp Fee</span>
+                            </label>
+                            <input type="text" name='health' placeholder="Health" defaultValue={health} className="input input-bordered" required />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Audience</span>
+                            </label>
+                            <input type="text" name='audience' placeholder="Audience" defaultValue={audience} className="input input-bordered" required />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Photo Url</span>
+                            </label>
+                            <input type="text" name='photo' placeholder="Photo" defaultValue={photo} className="input input-bordered" required />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Description</span>
+                            </label>
+                            <input type="text" name='description' placeholder="description" defaultValue={description} className="input input-bordered" required />
+                        </div>
                     </div>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Age</span>
-                        </label>
-                        <input type="text" name='fees' placeholder="Camp fees" defaultValue={camp_fees} className="input input-bordered" required />
+                    <div className="form-control mt-6">
+                        <input className="btn btn-primary" type="submit" value="Update" />
                     </div>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Venue</span>
-                        </label>
-                        <input type="text" name='venue' placeholder="Venue" defaultValue={venue} className="input input-bordered" required />
-                    </div>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Phone</span>
-                        </label>
-                        <input type="text" name='service' placeholder="Service" defaultValue={service} className="input input-bordered" required />
-                    </div>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Camp Fee</span>
-                        </label>
-                        <input type="text" name='health' placeholder="Health" defaultValue={health} className="input input-bordered" required />
-                    </div>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Audience</span>
-                        </label>
-                        <input type="text" name='audience' placeholder="Audience" defaultValue={audience} className="input input-bordered" required />
-                    </div>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Photo Url</span>
-                        </label>
-                        <input type="text" name='photo' placeholder="Photo" defaultValue={photo} className="input input-bordered" required />
-                    </div>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Description</span>
-                        </label>
-                        <input type="text" name='description' placeholder="description" defaultValue={description} className="input input-bordered" required />
-                    </div>
-                </div>
-                <div className="form-control mt-6">
-                    <input className="btn btn-primary" type="submit" value="Update" />
-                </div>
-            </form>
-        </div>
+                </form>
+            </div>
+        </>
     );
 };
 
