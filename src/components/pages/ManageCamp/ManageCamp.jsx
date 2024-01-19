@@ -5,32 +5,10 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useCamp from "../../../Hooks/useCamp";
 import React from 'react';
-import Modal from 'react-modal';
-
-const customStyles = {
-    content: {
-        top: '50%',
-        left: '50%',
-        right: 'auto',
-        bottom: 'auto',
-        marginRight: '-50%',
-        transform: 'translate(-50%, -50%)',
-    },
-};
-
-Modal.setAppElement('#root');
+import { Link } from "react-router-dom";
 
 const ManageCamp = () => {
 
-    const [modalIsOpen, setIsOpen] = React.useState(false);
-
-    function openModal() {
-        setIsOpen(true);
-    }
-
-    function closeModal() {
-        setIsOpen(false);
-    }
 
     const [addCamp, setAddCamp] = useState([]);
     const [, refetch] = useCamp();
@@ -95,79 +73,9 @@ const ManageCamp = () => {
 
 
 
-
-
-                                    {/* <Link to={`/update-camp/${item._id}`}> */}
-                                    <button className="btn mx-auto block my-10" onClick={openModal}><GiUpgrade />
-                                    </button>
-                                    {/* </Link> */}
-                                    <Modal
-                                        isOpen={modalIsOpen}
-                                        onRequestClose={closeModal}
-                                        style={customStyles}
-                                        contentLabel="Example Modal"
-                                    >
-                                        <form >
-                                            <div className="grid grid-cols-2 gap-2">
-                                                <div className="form-control">
-                                                    <label className="label">
-                                                        <span className="label-text">Name</span>
-                                                    </label>
-                                                    <input type="text" name='camp' placeholder="Camp Name" defaultValue={item.camp_name} className="input input-bordered" required />
-                                                </div>
-                                                <div className="form-control">
-                                                    <label className="label">
-                                                        <span className="label-text">Age</span>
-                                                    </label>
-                                                    <input type="text" name='fees' placeholder="Camp fees" defaultValue={item.camp_fees} className="input input-bordered" required />
-                                                </div>
-                                                <div className="form-control">
-                                                    <label className="label">
-                                                        <span className="label-text">Venue</span>
-                                                    </label>
-                                                    <input type="text" name='venue' placeholder="Venue" defaultValue={item.venue} className="input input-bordered" required />
-                                                </div>
-                                                <div className="form-control">
-                                                    <label className="label">
-                                                        <span className="label-text">Phone</span>
-                                                    </label>
-                                                    <input type="text" name='service' placeholder="Service" defaultValue={item.service} className="input input-bordered" required />
-                                                </div>
-                                                <div className="form-control">
-                                                    <label className="label">
-                                                        <span className="label-text">Camp Fee</span>
-                                                    </label>
-                                                    <input type="text" name='health' placeholder="Health" defaultValue={item.health} className="input input-bordered" required />
-                                                </div>
-                                                <div className="form-control">
-                                                    <label className="label">
-                                                        <span className="label-text">Audience</span>
-                                                    </label>
-                                                    <input type="text" name='audience' placeholder="Audience" defaultValue={item.audience} className="input input-bordered" required />
-                                                </div>
-                                                <div className="form-control">
-                                                    <label className="label">
-                                                        <span className="label-text">Photo Url</span>
-                                                    </label>
-                                                    <input type="text" name='photo' placeholder="Photo" defaultValue={item.photo} className="input input-bordered" required />
-                                                </div>
-                                                <div className="form-control">
-                                                    <label className="label">
-                                                        <span className="label-text">Description</span>
-                                                    </label>
-                                                    <input type="text" name='description' placeholder="description" defaultValue={item.description} className="input input-bordered" required />
-                                                </div>
-                                            </div>
-                                            <div className="form-control mt-6">
-                                                <input className="btn btn-primary" type="submit" value="Update" />
-                                            </div>
-                                        </form>
-                                        <div className="flex justify-center items-center my-3">
-                                            <button className="btn" onClick={closeModal}>Close</button>
-                                        </div>
-                                    </Modal>
-
-
+                                    <Link to={`/dashboard/update-camp/${item._id}`}>
+                                        <GiUpgrade />
+                                    </Link>
 
 
 

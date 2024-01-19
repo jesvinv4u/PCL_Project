@@ -11,6 +11,7 @@ import Dashboard from "../Layout/Dashboard";
 import OurCamp from "../components/pages/Home/CampDetails/ourCamp";
 import AddCamp from "../components/pages/AddCamp/AddCamp";
 import ManageCamp from "../components/pages/ManageCamp/ManageCamp";
+import UpdateCamp from "../Layout/UpdateCamp";
 
 
 export const router = createBrowserRouter([
@@ -56,6 +57,11 @@ export const router = createBrowserRouter([
       {
         path: 'manage-camps',
         element: <ManageCamp></ManageCamp>
+      },
+      {
+        path: 'update-camp/:id',
+        element: <UpdateCamp></UpdateCamp>,
+        loader: ({ params }) => fetch(`http://localhost:5000/add-a-camp/${params.id}`)
       },
     ]
   },
