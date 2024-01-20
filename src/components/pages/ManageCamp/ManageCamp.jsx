@@ -62,8 +62,8 @@ const ManageCamp = () => {
                                 <th>Update</th>
                                 <th>Action</th>
                                 <th>Image</th>
-                                <th>Name</th>
-                                <th>Price</th>
+                                <th>Camp Name</th>
+                                <th>Fees</th>
                                 <th>venue</th>
                                 <th>service</th>
                                 <th>health</th>
