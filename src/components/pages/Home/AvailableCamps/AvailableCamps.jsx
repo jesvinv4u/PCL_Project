@@ -8,7 +8,7 @@ const AvailableCamps = () => {
     const [camps, setCamps] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/camps')
+        fetch('https://reset-assignment-12-server.vercel.app/camps')
             .then(res => res.json())
             .then(data => setCamps(data))
     }, [])
