@@ -19,7 +19,7 @@ const MedicalCamp = () => {
                 subHeading={"Let's See Our Popular Medical Camps"}
                 heading={"Camps"}
             ></SectionTitle>
-            <div className="grid grid-cols-3 mx-auto">
+            <div className="grid grid-cols-3 max-w-full mx-auto">
                 {
                     camps.slice(0, 6).map((camp, index) => <Camp key={index} camp={camp}></Camp>)
                 }

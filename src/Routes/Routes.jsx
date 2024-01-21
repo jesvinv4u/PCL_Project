@@ -15,6 +15,7 @@ import UpdateCamp from "../Layout/UpdateCamp";
 import ManageRegisteredCamps from "../components/pages/Home/ManageRegisteredCamps/ManageRegisteredCamps";
 import Payment from "../Layout/Payment";
 import PaymentHistory from "../Layout/PaymentHistory";
+import PrivateRoute from "./PrivateRoute";
 
 
 export const router = createBrowserRouter([
@@ -41,13 +42,13 @@ export const router = createBrowserRouter([
       },
       {
         path: 'availableCamps',
-        element: <AvailableCamps></AvailableCamps>
+        element: <PrivateRoute><AvailableCamps></AvailableCamps></PrivateRoute>
       }
     ]
   },
   {
     path: 'dashboard',
-    element: <Dashboard></Dashboard>,
+    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
       {
         path: 'ourCamp',
@@ -55,11 +56,11 @@ export const router = createBrowserRouter([
       },
       {
         path: 'add-a-camp',
-        element: <AddCamp></AddCamp>
+        element: <PrivateRoute><AddCamp></AddCamp></PrivateRoute>
       },
       {
         path: 'manage-camps',
-        element: <ManageCamp></ManageCamp>
+        element: <PrivateRoute><ManageCamp></ManageCamp></PrivateRoute>
       },
       {
         path: 'update-camp/:id',
@@ -68,7 +69,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'manage-registered-camps',
-        element: <ManageRegisteredCamps></ManageRegisteredCamps>,
+        element: <PrivateRoute><ManageRegisteredCamps></ManageRegisteredCamps></PrivateRoute>,
         loader: () => fetch('http://localhost:5000/add-a-camp')
       },
       {

@@ -10,7 +10,7 @@ const Camp = ({ camp }) => {
             <Helmet>
                 <title>Medical Camp | See Our Camp</title>
             </Helmet>
-            <div className="card w-96 bg-base-100 shadow-xl border border-blue-500 mb-12">
+            <div className="card bg-base-100 shadow-xl border border-blue-500 m-12">
                 <figure><img className="h-56" src={Image} /></figure>
                 <div className="card-body">
                     <h2 className="card-title">

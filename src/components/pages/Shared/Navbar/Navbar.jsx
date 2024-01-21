@@ -42,7 +42,7 @@ const Navbar = () => {
 
     return (
         <>
-            <div className="navbar fixed z-10 bg-opacity-50 max-w-screen-xl bg-black text-white">
+            <div className="navbar fixed z-10 bg-opacity-50 max-w-full mx-auto bg-black text-white">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -67,17 +67,15 @@ const Navbar = () => {
                         user ?
                             <>
                                 <div className="flex items-center">
-                                    <p>{user.email}</p>
-                                    <img className="rounded-full w-12 h-12 ml-1" alt="" src={user.photoURL} />
+                                    <p>{user?.email}</p>
+                                    <img className="rounded-full w-12 h-12 ml-2" alt="" src={user?.photoURL} />
                                 </div>
-                                <button className="btn btn-outline bg-white font-bold text-sm text-black" onClick={handleLogout}>Log out</button>
+                                <button className="btn btn-outline bg-white font-bold text-sm text-black ml-2" onClick={handleLogout}>Log out</button>
                             </>
                             :
                             <>
-                                <Link className="btn btn-outline bg-white font-bold text-sm text-black" to='/login'>Login</Link>
-                                <div className="">
-                                    <button onClick={handleGoogleSignIn} className="btn btn-outline bg-white font-bold text-sm text-black">Google</button>
-                                </div>
+                                <Link className="btn btn-outline bg-white font-bold text-sm text-black ml-2" to='/login'>Login</Link>
+                                <button onClick={handleGoogleSignIn} className="btn btn-outline bg-white font-bold text-sm text-black">Google</button>
                             </>
                     }
                 </div>
