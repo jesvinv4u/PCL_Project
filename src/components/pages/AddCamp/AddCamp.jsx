@@ -1,6 +1,5 @@
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2'
 import useAuth from "../../../Hooks/useAuth";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
@@ -25,8 +24,9 @@ const AddCamp = () => {
         const audience = form.audience.value;
         const description = form.description.value;
         const addCamp = { camp_name, photo, camp_fees, date_time, venue, service, health, audience, description };
+        console.log(addCamp);
 
-        if (user && user.email) {
+        // if (user && user.email) {
             axiosSecure.post('/add-a-camp', addCamp)
                 .then(res => {
                     reset();
@@ -41,7 +41,7 @@ const AddCamp = () => {
                         refetch();
                     }
                 })
-        }
+        // }
     }
 
     return (

@@ -16,7 +16,7 @@ const ManageCamp = () => {
     const axiosSecure = useAxiosSecure();
 
     useEffect(() => {
-        fetch('https://reset-assignment-12-server.vercel.app/add-a-camp')
+        fetch('http://localhost:5000/add-a-camp')
             .then(res => res.json())
             .then(data => setAddCamp(data))
     }, [])

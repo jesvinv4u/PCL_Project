@@ -85,7 +85,6 @@ const CheckoutForm = () => {
                     transactionId: paymentIntent.id,
                     date: new Date(), // utc date convert. use moment js to 
                     campIds: camp.map(item => item._id),
-                    menuItemIds: camp.map(item => item.menuId),
                     status: 'pending'
                 }
 

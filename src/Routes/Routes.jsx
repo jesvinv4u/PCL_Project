@@ -14,6 +14,7 @@ import ManageCamp from "../components/pages/ManageCamp/ManageCamp";
 import UpdateCamp from "../Layout/UpdateCamp";
 import ManageRegisteredCamps from "../components/pages/Home/ManageRegisteredCamps/ManageRegisteredCamps";
 import Payment from "../Layout/Payment";
+import PaymentHistory from "../Layout/PaymentHistory";
 
 
 export const router = createBrowserRouter([
@@ -36,7 +37,7 @@ export const router = createBrowserRouter([
       {
         path: 'camp-details/:id',
         element: <CampDetails></CampDetails>,
-        loader: ({ params }) => fetch(`https://reset-assignment-12-server.vercel.app/camps/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/camps/${params.id}`)
       },
       {
         path: 'availableCamps',
@@ -63,16 +64,20 @@ export const router = createBrowserRouter([
       {
         path: 'update-camp/:id',
         element: <UpdateCamp></UpdateCamp>,
-        loader: ({ params }) => fetch(`https://reset-assignment-12-server.vercel.app/add-a-camp/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/add-a-camp/${params.id}`)
       },
       {
         path: 'manage-registered-camps',
         element: <ManageRegisteredCamps></ManageRegisteredCamps>,
-        loader: () => fetch('https://reset-assignment-12-server.vercel.app/add-a-camp')
+        loader: () => fetch('http://localhost:5000/add-a-camp')
       },
       {
         path: 'payment',
         element: <Payment></Payment>
+      },
+      {
+        path: 'paymentHistory',
+        element: <PaymentHistory></PaymentHistory>
       },
     ]
   },

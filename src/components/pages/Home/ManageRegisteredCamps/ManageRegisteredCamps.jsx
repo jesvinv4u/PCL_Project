@@ -1,9 +1,12 @@
 import { Helmet } from "react-helmet-async";
 import { Link, useLoaderData } from "react-router-dom";
+import useCamp from "../../../../Hooks/useCamp";
 
 const ManageRegisteredCamps = () => {
 
     const data = useLoaderData();
+    const [camp] = useCamp();
+    const totalPrice = camp.reduce((total, item) => total + item.price, 0);
 
     return (
         <>
@@ -13,7 +16,7 @@ const ManageRegisteredCamps = () => {
             <div>
                 <div className="flex">
                     <h2 className="text-4xl">Items: {data.length}</h2>
-                    <h2 className="text-4xl">Total Price: </h2>
+                    <h2 className="text-4xl">Total Price: {totalPrice}</h2>
                     {
                         data.length ?
                             <Link to='/dashboard/payment'>
@@ -41,7 +44,7 @@ const ManageRegisteredCamps = () => {
                                 data.map(item => <tr key={item._id}>
                                     <td>{item.camp_name}</td>
                                     <td>{item.venue}</td>
-                                    <td>{item.camp_fees}</td>
+                                    <td>${item.camp_fees}</td>
                                     <td>
                                         <p className="btn btn-xs">Paid</p>
                                         <p className="btn btn-xs">Unpaid</p>

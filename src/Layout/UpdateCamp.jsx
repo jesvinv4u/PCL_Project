@@ -23,7 +23,7 @@ const UpdateCamp = () => {
         const updatedCamp = { camp, fees, venue, service, health, audience, photo, description };
         console.log(updatedCamp);
 
-        fetch(`https://reset-assignment-12-server.vercel.app/add-a-camp/${_id}`, {
+        fetch(`http://localhost:5000/add-a-camp/${_id}`, {
             method: 'Put',
             headers: {
                 'content-type': 'application/json'

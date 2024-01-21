@@ -6,12 +6,20 @@ import { Helmet } from "react-helmet-async";
 const AvailableCamps = () => {
 
     const [camps, setCamps] = useState([]);
+    const [search, setSearch] = useState('');
 
     useEffect(() => {
-        fetch('https://reset-assignment-12-server.vercel.app/camps')
+        fetch(`http://localhost:5000/camps?search=${search}`)
             .then(res => res.json())
             .then(data => setCamps(data))
     }, [])
+
+    const handleSearch = event => {
+        event.preventDefault();
+        const searchItem = event.target.name.value;
+        setSearch(searchItem);
+        console.log(searchItem);
+    }
 
     return (
         <>
@@ -24,6 +32,16 @@ const AvailableCamps = () => {
                     heading={"Camps"}
                 ></SectionTitle>
                 <div className="grid grid-cols-3 mx-auto">
+
+
+
+                    <form onSubmit={handleSearch} className="join">
+                        <input className="input input-bordered join-item" placeholder="Search" name="name" />
+                        <button type="submit" className="btn join-item rounded-r-full">Search</button>
+                    </form>
+
+
+
                     {
                         camps.map(camp => <div key={camp._id} className="card w-96 bg-base-100 shadow-xl border border-blue-500 mb-12">
                             <figure><img className="h-56" src={camp.Image} /></figure>
