@@ -27,20 +27,20 @@ const AddCamp = () => {
         console.log(addCamp);
 
         // if (user && user.email) {
-            axiosSecure.post('/add-a-camp', addCamp)
-                .then(res => {
-                    reset();
-                    if (res.data.insertedId) {
-                        Swal.fire({
-                            position: 'top-end',
-                            icon: 'success',
-                            title: 'Camp Added Successfully',
-                            showConfirmButton: false,
-                            timer: 2000
-                        });
-                        refetch();
-                    }
-                })
+        axiosSecure.post('/add-a-camp', addCamp)
+            .then(res => {
+                reset();
+                if (res.data.insertedId) {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Camp Added Successfully',
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                    refetch();
+                }
+            })
         // }
     }
 
@@ -55,7 +55,7 @@ const AddCamp = () => {
                         <h1 className="text-5xl font-bold">Add a Camp!</h1>
                     </div>
                     <div className="w-full shadow-2xl rounded-xl bg-base-100 border border-blue-800">
-                        <form onSubmit={handleSubmit(handleAddCamp)} className="card-body grid grid-cols-3 gap-4">
+                        <form onSubmit={handleSubmit(handleAddCamp)} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2a lg:grid-cols-3 xl:grid-cols-3 max-w-full mx-auto gap-4 p-4">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Camp Name</span>

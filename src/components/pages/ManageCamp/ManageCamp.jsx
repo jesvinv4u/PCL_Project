@@ -55,7 +55,7 @@ const ManageCamp = () => {
             <div className="">
                
                 <div className="overflow-x-auto">
-                    <table className="table  w-full">
+                    <table className="table w-full">
                         {/* head */}
                         <thead>
                             <tr>
