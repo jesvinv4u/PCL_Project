@@ -1,14 +1,12 @@
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2'
-import useAuth from "../../../Hooks/useAuth";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useCamp from "../../../Hooks/useCamp";
 
 const AddCamp = () => {
 
     const { handleSubmit, reset } = useForm();
-    const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
     const [, refetch] = useCamp();
 

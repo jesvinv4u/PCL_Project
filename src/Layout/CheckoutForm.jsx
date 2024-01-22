@@ -6,7 +6,6 @@ import useAxiosSecure from "../Hooks/useAxiosSecure";
 import useCamp from "../Hooks/useCamp";
 import useAuth from "../Hooks/useAuth";
 
-
 const CheckoutForm = () => {
     const [error, setError] = useState('');
     const [clientSecret, setClientSecret] = useState('')
@@ -53,12 +52,12 @@ const CheckoutForm = () => {
             console.log('payment error', error);
             setError(error.message);
         }
+
         else {
             console.log('payment method', paymentMethod)
             setError('');
         }
 
-        // confirm payment
         const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(clientSecret, {
             payment_method: {
                 card: card,
@@ -72,18 +71,18 @@ const CheckoutForm = () => {
         if (confirmError) {
             console.log('confirm error')
         }
+
         else {
             console.log('payment intent', paymentIntent)
             if (paymentIntent.status === 'succeeded') {
                 console.log('transaction id', paymentIntent.id);
                 setTransactionId(paymentIntent.id);
 
-                // now save the payment in the database
                 const payment = {
                     email: user.email,
                     price: totalPrice,
                     transactionId: paymentIntent.id,
-                    date: new Date(), // utc date convert. use moment js to 
+                    date: new Date(), 
                     campIds: camp.map(item => item._id),
                     status: 'pending'
                 }
@@ -101,10 +100,8 @@ const CheckoutForm = () => {
                     });
                     navigate('/dashboard/paymentHistory')
                 }
-
             }
         }
-
     }
 
     return (

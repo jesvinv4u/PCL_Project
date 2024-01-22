@@ -31,18 +31,17 @@ const AvailableCamps = () => {
                     subHeading={"Here Is Our Available Camps"}
                     heading={"Camps"}
                 ></SectionTitle>
-                
+
 
 
                 <form onSubmit={handleSearch} className="flex items-center justify-center">
-                        <input className="input input-bordered join-item rounded-r-none" placeholder="Search" name="name" />
-                        <button type="submit" className="btn join-item rounded-l-none">Search</button>
-                    </form>
+                    <input className="input input-bordered join-item rounded-r-none" placeholder="Search" name="name" />
+                    <button type="submit" className="btn join-item rounded-l-none">Search</button>
+                </form>
 
 
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2a lg:grid-cols-3 xl:grid-cols-3 max-w-full mx-auto gap-4 p-4">
-
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2a lg:grid-cols-3 xl:grid-cols-3 max-w-full mx-auto gap-4 p-4">
                     {
                         camps.map(camp => <div key={camp._id} className="card bg-base-100 shadow-xl border border-blue-500 m-12">
                             <figure><img className="h-56" src={camp.Image} /></figure>

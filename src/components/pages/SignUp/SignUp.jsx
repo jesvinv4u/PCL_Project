@@ -29,7 +29,6 @@ const SignUp = () => {
                             timer: 2000
                         });
                         navigate('/');
-
                     })
                     .catch(error => console.log(error))
             })
@@ -91,8 +90,8 @@ const SignUp = () => {
                             </div>
                         </form>
                         <p className="my-4 text-center">Already have an account ?
-                        <Link to='/login' className='text-orange-600 font-bold'> Login</Link>
-                    </p>
+                            <Link to='/login' className='text-orange-600 font-bold'> Login</Link>
+                        </p>
                     </div>
                 </div>
             </div>

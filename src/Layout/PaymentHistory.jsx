@@ -35,7 +35,6 @@ const PaymentHistory = () => {
                             <td>{payment.transactionId}</td>
                             <td>{payment.status}</td>
                         </tr>)}
-                        
                     </tbody>
                 </table>
             </div>

@@ -10,7 +10,6 @@ import { Helmet } from "react-helmet-async";
 
 const ManageCamp = () => {
 
-
     const [addCamp, setAddCamp] = useState([]);
     const [, refetch] = useCamp();
     const axiosSecure = useAxiosSecure();
@@ -52,8 +51,7 @@ const ManageCamp = () => {
             <Helmet>
                 <title>Medical Camp | Manage Your Own Camp</title>
             </Helmet>
-            <div className="">
-               
+            <div>
                 <div className="overflow-x-auto">
                     <table className="table w-full">
                         {/* head */}
