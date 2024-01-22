@@ -42,23 +42,23 @@ const Navbar = () => {
 
     return (
         <>
-            <div className="navbar fixed z-10 bg-opacity-50 max-w-full mx-auto bg-black text-white">
+            <div className="navbar fixed z-10 bg-blue-400 max-w-full mx-auto text-white">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
-                        <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                        <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 text-slate-800 rounded-box font-bold w-52">
                             {navOptions}
                         </ul>
                     </div>
                     <div className="flex gap-2">
                         <FaBriefcaseMedical className="w-12 h-12" />
-                        <p className="font-bold uppercase italic">Medical <br /> Camp</p>
+                        <p className="font-extrabold uppercase italic text-slate-800">Medical <br /> Camp</p>
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
+                    <ul className="menu menu-horizontal text-slate-800 font-bold px-1">
                         {navOptions}
                     </ul>
                 </div>
@@ -67,7 +67,7 @@ const Navbar = () => {
                         user ?
                             <>
                                 <div className="flex items-center">
-                                    <p>{user?.email}</p>
+                                    <p className="text-slate-800 font-bold">{user?.email}</p>
                                     <img className="rounded-full w-12 h-12 ml-2" alt="" src={user?.photoURL} />
                                 </div>
                                 <button className="btn btn-outline bg-white font-bold text-sm text-black ml-2" onClick={handleLogout}>Log out</button>

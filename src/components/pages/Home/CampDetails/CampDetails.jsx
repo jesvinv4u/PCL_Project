@@ -92,7 +92,7 @@ const CampDetails = () => {
                         contentLabel="Example Modal"
                     >
                         <form onSubmit={handleAddToCart}>
-                            <div className="grid grid-cols-3 gap-2">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2a lg:grid-cols-3 xl:grid-cols-3 max-w-full mx-auto gap-4 p-4">
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Name</span>
