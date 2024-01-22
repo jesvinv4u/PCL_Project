@@ -1,16 +1,18 @@
 <h1 align="center">Hi 👋, I'm Sahal Mahin</h1>
-<h3 align="center">I have created a website related to my Blog</h3>
+<h3 align="center">I have created a website related to Medical Camp</h3>
 
 <img alt="coding" width="400" align="right" src="https://i.postimg.cc/bvf8mKBY/blog.png"/>
 
   Some Features of our site :
-    <li>You can checkout our blog if you sign in or login.</li>
-    <li>You can add your blog to our page if you want.</li>
-    <li>You can also update.</li>
-    <li>You can comment on other blogs.</li>
-    <li>Finally you can delete the blog if you want.</li>
+    <li>You can checkout our camp if you sign in or login.</li>
+    <li>You can join the camp by filling the requirements.</li>
+    <li>You can see our special doctors.</li>
+    <li>Without sign in you cannot see our available camps.</li>
+    <li>Finally you can cancel your appointment if you want.</li>
 
-📫 Live Site Url : https://blog-site-c23c3.web.app/
+📫 Live Site Url : https://medical-campaign-2d652.web.app/
+
+
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
