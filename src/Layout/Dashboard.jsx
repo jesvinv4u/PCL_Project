@@ -47,7 +47,7 @@ const Dashboard = () => {
 
                             </li>
                             <li>
-                                <NavLink to="/dashboard/participant-profile">
+                                <NavLink to="/dashboard/professional-profile">
                                     Profile Management
                                 </NavLink>
                             </li>
@@ -59,6 +59,12 @@ const Dashboard = () => {
                             <li>
                                 <NavLink to="/dashboard/payment-history">
                                     Payment History
+                                </NavLink>
+                            </li>
+                            <div className="divider"></div>
+                            <li>
+                                <NavLink to="/dashboard/professional-profile">
+                                    Professional Profile Management
                                 </NavLink>
                             </li>
                         </>
@@ -97,7 +103,7 @@ const Dashboard = () => {
 
                                 </li>
                                 <li>
-                                    <NavLink to="/dashboard/participant-profile">
+                                    <NavLink to="/dashboard/professional-profile">
                                         Profile Management
                                     </NavLink>
                                 </li>
@@ -107,14 +113,20 @@ const Dashboard = () => {
                                     </NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/dashboard/paymentHistory">
+                                    <NavLink to="/dashboard/payment-history">
                                         Payment History
+                                    </NavLink>
+                                </li>
+                                <div className="divider"></div>
+                                <li>
+                                    <NavLink to="/dashboard/professional-profile">
+                                        Professional Profile Management
                                     </NavLink>
                                 </li>
                             </>
                     }
                     <li>
-                        <NavLink to="">
+                        <NavLink to="/dashboard/feedback-and-ratings">
                             Feedback & Ratings
                         </NavLink>
                     </li>

@@ -16,6 +16,9 @@ import ManageRegisteredCamps from "../components/pages/Home/ManageRegisteredCamp
 import Payment from "../Layout/Payment";
 import PaymentHistory from "../Layout/PaymentHistory";
 import PrivateRoute from "./PrivateRoute";
+import ProfileManagement from "../components/pages/ProfileManagement/ProfileManagement";
+import RegisteredCamps from "../components/pages/RegisteredCamps/RegisteredCamps";
+import FeedbackAndRatings from "../components/pages/FeedbackAndRatings/FeedbackAndRatings";
 
 
 export const router = createBrowserRouter([
@@ -73,11 +76,27 @@ export const router = createBrowserRouter([
         loader: () => fetch('http://localhost:5000/add-a-camp')
       },
       {
+        path: ':professional-profile',
+        element: <ProfileManagement></ProfileManagement>
+      },
+      {
+        path: 'registered-camps',
+        element: <RegisteredCamps></RegisteredCamps>
+      },
+      {
+        path: 'professional-profile',
+        element: <></>
+      },
+      {
+        path: 'feedback-and-ratings',
+        element: <FeedbackAndRatings></FeedbackAndRatings>
+      },
+      {
         path: 'payment',
         element: <Payment></Payment>
       },
       {
-        path: 'paymentHistory',
+        path: 'payment-history',
         element: <PaymentHistory></PaymentHistory>
       },
     ]
