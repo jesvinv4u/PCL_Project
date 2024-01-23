@@ -1,21 +1,30 @@
-import { Link } from "react-router-dom";
-import { FaBriefcaseMedical, FaNotesMedical } from "react-icons/fa6";
+import { Link, useNavigate } from "react-router-dom";
+import { FaBriefcaseMedical, FaGoogle, FaNotesMedical } from "react-icons/fa6";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import useCamp from "../../../../Hooks/useCamp";
+import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
 
 const Navbar = () => {
 
     const { user, logOut, googleSignIn } = useContext(AuthContext);
     const [camp] = useCamp();
+    const axiosPublic = useAxiosPublic();
+    const navigate = useNavigate();
 
     const handleGoogleSignIn = () => {
         googleSignIn()
             .then(result => {
                 console.log(result.user);
-            })
-            .catch(error => {
-                console.error(error);
+                const userInfo = {
+                    email: result.user?.email,
+                    name: result.user?.displayName
+                }
+                axiosPublic.post('/users', userInfo)
+                    .then(res => {
+                        console.log(res.data);
+                        navigate('/');
+                    })
             })
     }
 
@@ -70,12 +79,14 @@ const Navbar = () => {
                                     <p className="text-slate-800 font-bold">{user?.email}</p>
                                     <img className="rounded-full w-12 h-12 ml-2" alt="" src={user?.photoURL} />
                                 </div>
-                                <button className="btn btn-outline bg-white font-bold text-sm text-black ml-2" onClick={handleLogout}>Log out</button>
+                                <button className="btn btn-outline bg-slate-600 border-0 font-bold text-sm text-white ml-2" onClick={handleLogout}>Log out</button>
                             </>
                             :
                             <>
-                                <Link className="btn btn-outline bg-white font-bold text-sm text-black ml-2" to='/login'>Login</Link>
-                                <button onClick={handleGoogleSignIn} className="btn btn-outline bg-white font-bold text-sm text-black">Google</button>
+                                <Link className="btn btn-outline bg-slate-600 border-0 font-bold text-sm text-white ml-1" to='/login'>Login</Link>
+                                <Link className="btn btn-outline bg-slate-600 border-0 font-bold text-sm text-white ml-1" to='/signUp'>Sign up</Link>
+                                <button onClick={handleGoogleSignIn} className="btn btn-outline bg-slate-600 border-0 font-bold ml-1 text-sm text-white gap-2">
+                                    <FaGoogle></FaGoogle>Google Login</button>
                             </>
                     }
                 </div>
