@@ -14,7 +14,7 @@ const ManageRegisteredCamps = () => {
                 <title>Medical Camp | Manage Registered Camps</title>
             </Helmet>
             <div>
-                <div className="flex">
+                <div className="flex justify-between">
                     <h2 className="text-4xl">Items: {data.length}</h2>
                     <h2 className="text-4xl">Total Price: {totalPrice}</h2>
                     {

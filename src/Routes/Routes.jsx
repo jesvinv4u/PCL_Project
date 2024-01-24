@@ -19,6 +19,7 @@ import PrivateRoute from "./PrivateRoute";
 import ProfileManagement from "../components/pages/ProfileManagement/ProfileManagement";
 import RegisteredCamps from "../components/pages/RegisteredCamps/RegisteredCamps";
 import FeedbackAndRatings from "../components/pages/FeedbackAndRatings/FeedbackAndRatings";
+import ProfessionalProfile from "../components/pages/ProfessionalProfile/ProfessionalProfile";
 
 
 export const router = createBrowserRouter([
@@ -76,7 +77,7 @@ export const router = createBrowserRouter([
         loader: () => fetch('http://localhost:5000/add-a-camp')
       },
       {
-        path: ':professional-profile',
+        path: 'participant-profile',
         element: <ProfileManagement></ProfileManagement>
       },
       {
@@ -85,7 +86,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'professional-profile',
-        element: <></>
+        element: <ProfessionalProfile></ProfessionalProfile>
       },
       {
         path: 'feedback-and-ratings',
