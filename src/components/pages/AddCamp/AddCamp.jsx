@@ -54,8 +54,6 @@ const AddItems = () => {
             <SectionTitle heading="Join camp" ></SectionTitle>
             <div>
                 <form onSubmit={handleSubmit(onSubmit)}>
-
-
                    <div className="grid grid-cols-2 gap-6">
                    <div className="form-control w-full">
                         <label className="label">
@@ -68,8 +66,6 @@ const AddItems = () => {
                             required
                             className="input input-bordered w-full" />
                     </div>
-
-
                     <div className="form-control w-full">
                         <label className="label">
                             <span className="label-text">Camp Fees*</span>
@@ -81,9 +77,6 @@ const AddItems = () => {
                             required
                             className="input input-bordered w-full" />
                     </div>
-                    
-                    
-                    
                     <div className="form-control w-full">
                         <label className="label">
                             <span className="label-text">Date and Time*</span>
@@ -95,9 +88,6 @@ const AddItems = () => {
                             required
                             className="input input-bordered w-full" />
                     </div>
-                   
-                   
-                   
                     <div className="form-control w-full">
                         <label className="label">
                             <span className="label-text">Venue Location*</span>
@@ -109,9 +99,6 @@ const AddItems = () => {
                             required
                             className="input input-bordered w-full" />
                     </div>
-                    
-                    
-                    
                     <div className="form-control w-full">
                         <label className="label">
                             <span className="label-text">Specialized Services*</span>
@@ -123,10 +110,6 @@ const AddItems = () => {
                             required
                             className="input input-bordered w-full" />
                     </div>
-                   
-                   
-                   
-                   
                     <div className="form-control w-full">
                         <label className="label">
                             <span className="label-text">Healthcare Professionals*</span>
@@ -138,9 +121,6 @@ const AddItems = () => {
                             required
                             className="input input-bordered w-full" />
                     </div>
-                   
-                   
-                   
                     <div className="form-control w-full">
                         <label className="label">
                             <span className="label-text">Target Audience*</span>
@@ -152,9 +132,6 @@ const AddItems = () => {
                             required
                             className="input input-bordered w-full" />
                     </div>
-                    
-                    
-                    
                     <div className="form-control w-full">
                         <label className="label">
                             <span className="label-text">Comprehensive Description*</span>
@@ -167,12 +144,9 @@ const AddItems = () => {
                             className="input input-bordered w-full" />
                     </div>
                    </div>
-
-
                     <div className="form-control w-full mt-4">
                         <input {...register('image', { required: true })} type="file" className="file-input w-full max-w-xs" />
                     </div>
-
                     <button className="btn mt-4">
                         Add a Camp
                     </button>

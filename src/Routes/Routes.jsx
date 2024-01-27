@@ -55,10 +55,6 @@ export const router = createBrowserRouter([
     element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
       {
-        path: 'ourCamp',
-        element: <OurCamp></OurCamp>
-      },
-      {
         path: 'add-a-camp',
         element: <PrivateRoute><AddCamp></AddCamp></PrivateRoute>
       },

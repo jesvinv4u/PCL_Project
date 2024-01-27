@@ -1,10 +1,7 @@
 import { NavLink, Outlet } from "react-router-dom";
-import useCamp from "../Hooks/useCamp";
-
 
 const Dashboard = () => {
 
-    const [camp] = useCamp();
     const isAdmin = true;
 
     return (
