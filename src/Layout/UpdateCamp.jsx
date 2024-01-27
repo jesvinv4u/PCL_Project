@@ -7,7 +7,7 @@ const UpdateCamp = () => {
 
     const camp = useLoaderData();
 
-    const { _id, camp_name, camp_fees, venue, service, health, audience, photo, description } = camp
+    const { _id, name, fees, venue_location, services, professionals, audience, image, description } = camp
 
     const handleUpdateCamp = event => {
         event.preventDefault();
@@ -62,31 +62,31 @@ const UpdateCamp = () => {
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input type="text" name='camp' placeholder="Camp Name" defaultValue={camp_name} className="input input-bordered" required />
+                            <input type="text" name='camp' placeholder="Camp Name" defaultValue={name} className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Age</span>
                             </label>
-                            <input type="text" name='fees' placeholder="Camp fees" defaultValue={camp_fees} className="input input-bordered" required />
+                            <input type="text" name='fees' placeholder="Camp fees" defaultValue={fees} className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Venue</span>
                             </label>
-                            <input type="text" name='venue' placeholder="Venue" defaultValue={venue} className="input input-bordered" required />
+                            <input type="text" name='venue' placeholder="Venue" defaultValue={venue_location} className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Phone</span>
+                                <span className="label-text">Service</span>
                             </label>
-                            <input type="text" name='service' placeholder="Service" defaultValue={service} className="input input-bordered" required />
+                            <input type="text" name='service' placeholder="Service" defaultValue={services} className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Camp Fee</span>
                             </label>
-                            <input type="text" name='health' placeholder="Health" defaultValue={health} className="input input-bordered" required />
+                            <input type="text" name='health' placeholder="Health" defaultValue={professionals} className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
@@ -98,7 +98,7 @@ const UpdateCamp = () => {
                             <label className="label">
                                 <span className="label-text">Photo Url</span>
                             </label>
-                            <input type="text" name='photo' placeholder="Photo" defaultValue={photo} className="input input-bordered" required />
+                            <input type="text" name='photo' placeholder="Photo" defaultValue={image} className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">

@@ -1,123 +1,185 @@
-import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
+import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
-import useCamp from "../../../Hooks/useCamp";
+import SectionTitle from "../../SectionTitle/SectionTitle";
 
-const AddCamp = () => {
+const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
+const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
-    const { handleSubmit, reset } = useForm();
+const AddItems = () => {
+
+    const { register, handleSubmit, reset } = useForm();
+    const axiosPublic = useAxiosPublic();
     const axiosSecure = useAxiosSecure();
-    const [, refetch] = useCamp();
 
-    const handleAddCamp = () => {
-        const form = event.target;
-        const camp_name = form.camp_name.value;
-        const photo = form.photo.value;
-        const camp_fees = form.camp_fees.value;
-        const date_time = form.date_time.value;
-        const venue = form.venue.value;
-        const service = form.service.value;
-        const health = form.health.value;
-        const audience = form.audience.value;
-        const description = form.description.value;
-        const addCamp = { camp_name, photo, camp_fees, date_time, venue, service, health, audience, description };
-        console.log(addCamp);
-
-        // if (user && user.email) {
-        axiosSecure.post('/add-a-camp', addCamp)
-            .then(res => {
+    const onSubmit = async (data) => {
+        console.log(data)
+        const imageFile = { image: data.image[0] }
+        const res = await axiosPublic.post(image_hosting_api, imageFile, {
+            headers: {
+                'content-type': 'multipart/form-data'
+            }
+        });
+        if (res.data.success) {
+            const addCamp = {
+                name: data.name,
+                fees: parseFloat(data.fees),
+                date_time: data.date_time,
+                venue_location: data.venue_location,
+                services: data.services,
+                professionals: data.professionals,
+                audience: data.audience,
+                description: data.description,
+                image: res.data.data.display_url
+            }
+            const camp = await axiosSecure.post('/add-a-camp', addCamp);
+            console.log(camp.data)
+            if (camp.data.insertedId) {
                 reset();
-                if (res.data.insertedId) {
-                    Swal.fire({
-                        position: 'top-end',
-                        icon: 'success',
-                        title: 'Camp Added Successfully',
-                        showConfirmButton: false,
-                        timer: 2000
-                    });
-                    refetch();
-                }
-            })
-        // }
-    }
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: `${data.name} is added to the camp.`,
+                    showConfirmButton: false,
+                    timer: 2500
+                });
+            }
+        }
+        console.log('with image url', res.data);
+    };
 
     return (
-        <>
-            <Helmet>
-                <title>Medical Camp | Add Your Camp</title>
-            </Helmet>
-            <div className=" border-blue-800">
-                <div className="mt-16">
-                    <div className="text-center mb-5">
-                        <h1 className="text-5xl font-bold">Add a Camp!</h1>
+        <div>
+            <SectionTitle heading="Join camp" ></SectionTitle>
+            <div>
+                <form onSubmit={handleSubmit(onSubmit)}>
+
+
+                   <div className="grid grid-cols-2 gap-6">
+                   <div className="form-control w-full">
+                        <label className="label">
+                            <span className="label-text">Camp Name*</span>
+                        </label>
+                        <input
+                            type="text"
+                            placeholder="Camp Name"
+                            {...register('name', { required: true })}
+                            required
+                            className="input input-bordered w-full" />
                     </div>
-                    <div className="w-full shadow-2xl rounded-xl bg-base-100 border border-blue-800">
-                        <form onSubmit={handleSubmit(handleAddCamp)} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2a lg:grid-cols-3 xl:grid-cols-3 max-w-full mx-auto gap-4 p-4">
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Camp Name</span>
-                                </label>
-                                <input type="text" name='camp_name' placeholder="Camp Name" className="input input-bordered" required />
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Photo Url</span>
-                                </label>
-                                <input type="text" name='photo' placeholder="Photo Url" className="input input-bordered" required />
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Camp Fees</span>
-                                </label>
-                                <input type="text" name='camp_fees' placeholder="Camp Fees" className="input input-bordered" required />
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Date & Time</span>
-                                </label>
-                                <input type="Date Time" name='date_time' placeholder="Date & Time" className="input input-bordered" required />
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Venue Location</span>
-                                </label>
-                                <input type="text" name='venue' placeholder="Venue Location" className="input input-bordered" required />
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Specialized Services</span>
-                                </label>
-                                <input type="text" name='service' placeholder="Specialized Services" className="input input-bordered" required />
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Healthcare Professionals in
-                                        Attendance</span>
-                                </label>
-                                <input type="text" name='health' placeholder="Healthcare Professionals in Attendance" className="input input-bordered" required />
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Target Audience</span>
-                                </label>
-                                <input type="text" name='audience' placeholder="Target Audience" className="input input-bordered" required />
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Comprehensive Description</span>
-                                </label>
-                                <input type="text" name='description' placeholder="Comprehensive Description" className="input input-bordered" required />
-                            </div>
-                            <div className="form-control mb-4 items-center">
-                                <input className="btn btn-primary" type="submit" value="Add Camp" />
-                            </div>
-                        </form>
+
+
+                    <div className="form-control w-full">
+                        <label className="label">
+                            <span className="label-text">Camp Fees*</span>
+                        </label>
+                        <input
+                            type="text"
+                            placeholder="Camp Fees"
+                            {...register('fees', { required: true })}
+                            required
+                            className="input input-bordered w-full" />
                     </div>
-                </div>
+                    
+                    
+                    
+                    <div className="form-control w-full">
+                        <label className="label">
+                            <span className="label-text">Date and Time*</span>
+                        </label>
+                        <input
+                            type="text"
+                            placeholder="Date and Time"
+                            {...register('date_time', { required: true })}
+                            required
+                            className="input input-bordered w-full" />
+                    </div>
+                   
+                   
+                   
+                    <div className="form-control w-full">
+                        <label className="label">
+                            <span className="label-text">Venue Location*</span>
+                        </label>
+                        <input
+                            type="text"
+                            placeholder="Venue Location"
+                            {...register('venue_location', { required: true })}
+                            required
+                            className="input input-bordered w-full" />
+                    </div>
+                    
+                    
+                    
+                    <div className="form-control w-full">
+                        <label className="label">
+                            <span className="label-text">Specialized Services*</span>
+                        </label>
+                        <input
+                            type="text"
+                            placeholder="Specialized Services"
+                            {...register('services', { required: true })}
+                            required
+                            className="input input-bordered w-full" />
+                    </div>
+                   
+                   
+                   
+                   
+                    <div className="form-control w-full">
+                        <label className="label">
+                            <span className="label-text">Healthcare Professionals*</span>
+                        </label>
+                        <input
+                            type="text"
+                            placeholder="Healthcare Professionals"
+                            {...register('professionals', { required: true })}
+                            required
+                            className="input input-bordered w-full" />
+                    </div>
+                   
+                   
+                   
+                    <div className="form-control w-full">
+                        <label className="label">
+                            <span className="label-text">Target Audience*</span>
+                        </label>
+                        <input
+                            type="text"
+                            placeholder="Target Audience"
+                            {...register('audience', { required: true })}
+                            required
+                            className="input input-bordered w-full" />
+                    </div>
+                    
+                    
+                    
+                    <div className="form-control w-full">
+                        <label className="label">
+                            <span className="label-text">Comprehensive Description*</span>
+                        </label>
+                        <input
+                            type="text"
+                            placeholder="Comprehensive Description"
+                            {...register('description', { required: true })}
+                            required
+                            className="input input-bordered w-full" />
+                    </div>
+                   </div>
+
+
+                    <div className="form-control w-full mt-4">
+                        <input {...register('image', { required: true })} type="file" className="file-input w-full max-w-xs" />
+                    </div>
+
+                    <button className="btn mt-4">
+                        Add a Camp
+                    </button>
+                </form>
             </div>
-        </>
+        </div>
     );
 };
 
-export default AddCamp;
+export default AddItems;

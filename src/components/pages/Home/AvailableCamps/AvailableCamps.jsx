@@ -18,7 +18,7 @@ const AvailableCamps = () => {
         event.preventDefault();
         const searchItem = event.target.name.value;
         setSearch(searchItem);
-        console.log(searchItem);
+        // console.log(searchItem);
     }
 
     return (

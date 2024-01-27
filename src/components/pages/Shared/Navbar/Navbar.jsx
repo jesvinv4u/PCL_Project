@@ -38,7 +38,6 @@ const Navbar = () => {
         <li><Link to="/">Home</Link></li>
         <li><Link to="/availableCamps">Available Camps</Link></li>
         <li><Link to="">Dashboard</Link></li>
-        <li><Link to="">Contact Us</Link></li>
         <li>
             <Link to="/dashboard/ourCamp">
                 <button className="btn">
@@ -47,6 +46,7 @@ const Navbar = () => {
                 </button>
             </Link>
         </li>
+        <li><Link to="">Contact Us</Link></li>
     </>
 
     return (

@@ -26,7 +26,7 @@ const Dashboard = () => {
                             </li>
                             <li>
                                 <NavLink to="manage-camps">
-                                    Manage Camps ({camp.length})
+                                    Manage Camps
                                 </NavLink>
                             </li>
                             <li>
@@ -82,7 +82,7 @@ const Dashboard = () => {
                                 </li>
                                 <li>
                                     <NavLink to="manage-camps">
-                                        Manage Camps ({camp.length})
+                                        Manage Camps
                                     </NavLink>
                                 </li>
                                 <li>

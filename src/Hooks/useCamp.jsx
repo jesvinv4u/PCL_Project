@@ -8,9 +8,9 @@ const useCamp = () => {
     const { user } = useAuth();
 
     const { refetch, data: camp = [] } = useQuery({
-        queryKey: ['camp', user?.email],
+        queryKey: ['camps', user?.email],
         queryFn: async () => {
-            const res = await axiosSecure.get(`/addCamp?email=${user.email}`);
+            const res = await axiosSecure.get(`/camps?email=${user.email}`);
             return res.data;
         }
     })

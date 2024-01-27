@@ -88,16 +88,16 @@ const ManageCamp = () => {
                                         <div className="flex items-center gap-3">
                                             <div className="avatar">
                                                 <div className="mask mask-squircle w-12 h-12">
-                                                    <img src={item.photo} alt="Avatar Tailwind CSS Component" />
+                                                    <img src={item.image} alt="Avatar Tailwind CSS Component" />
                                                 </div>
                                             </div>
                                         </div>
                                     </td>
-                                    <td>{item.camp_name}</td>
-                                    <td>${item.camp_fees}</td>
-                                    <td>{item.venue}</td>
-                                    <td>{item.service}</td>
-                                    <td>{item.health}</td>
+                                    <td>{item.name}</td>
+                                    <td>${item.fees}</td>
+                                    <td>{item.venue_location}</td>
+                                    <td>{item.services}</td>
+                                    <td>{item.professionals}</td>
                                     <td>{item.audience}</td>
                                     <td>
                                         {item.description.length > 10
