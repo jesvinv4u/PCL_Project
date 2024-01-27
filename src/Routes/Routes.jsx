@@ -42,7 +42,7 @@ export const router = createBrowserRouter([
       {
         path: 'camp-details/:id',
         element: <CampDetails></CampDetails>,
-        loader: ({ params }) => fetch(`http://localhost:5000/camps/${params.id}`)
+        loader: ({ params }) => fetch(`https://reset-assignment-12-server.vercel.app/camps/${params.id}`)
       },
       {
         path: 'availableCamps',
@@ -69,12 +69,12 @@ export const router = createBrowserRouter([
       {
         path: 'update-camp/:id',
         element: <UpdateCamp></UpdateCamp>,
-        loader: ({ params }) => fetch(`http://localhost:5000/add-a-camp/${params.id}`)
+        loader: ({ params }) => fetch(`https://reset-assignment-12-server.vercel.app/add-a-camp/${params.id}`)
       },
       {
         path: 'manage-registered-camps',
         element: <PrivateRoute><ManageRegisteredCamps></ManageRegisteredCamps></PrivateRoute>,
-        loader: () => fetch('http://localhost:5000/add-a-camp')
+        loader: () => fetch('https://reset-assignment-12-server.vercel.app/add-a-camp')
       },
       {
         path: 'participant-profile',

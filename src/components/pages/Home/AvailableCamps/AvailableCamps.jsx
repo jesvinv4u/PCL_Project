@@ -9,7 +9,7 @@ const AvailableCamps = () => {
     const [search, setSearch] = useState('');
 
     useEffect(() => {
-        fetch(`http://localhost:5000/camps?search=${search}`)
+        fetch(`https://reset-assignment-12-server.vercel.app/camps?search=${search}`)
             .then(res => res.json())
             .then(data => setCamps(data))
     }, [])
