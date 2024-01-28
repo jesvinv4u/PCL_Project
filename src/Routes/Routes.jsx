@@ -8,7 +8,6 @@ import AvailableCamps from "../components/pages/Home/AvailableCamps/AvailableCam
 import SignUp from "../components/pages/SignUp/SignUp";
 import Login from "../components/pages/Login/Login";
 import Dashboard from "../Layout/Dashboard";
-import OurCamp from "../components/pages/Home/CampDetails/ourCamp";
 import AddCamp from "../components/pages/AddCamp/AddCamp";
 import ManageCamp from "../components/pages/ManageCamp/ManageCamp";
 import UpdateCamp from "../Layout/UpdateCamp";
@@ -82,7 +81,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'professional-profile',
-        element: <ProfessionalProfile></ProfessionalProfile>
+        element: <PrivateRoute><ProfessionalProfile></ProfessionalProfile></PrivateRoute>
       },
       {
         path: 'feedback-and-ratings',

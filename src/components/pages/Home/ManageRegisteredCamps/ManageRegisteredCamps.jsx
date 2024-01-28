@@ -42,9 +42,9 @@ const ManageRegisteredCamps = () => {
                         <tbody>
                             {
                                 data.map(item => <tr key={item._id}>
-                                    <td>{item.camp_name}</td>
-                                    <td>{item.venue}</td>
-                                    <td>${item.camp_fees}</td>
+                                    <td>{item.name}</td>
+                                    <td>{item.venue_location}</td>
+                                    <td>${item.fees}</td>
                                     <td>
                                         <p className="btn btn-xs">Paid</p>
                                         <p className="btn btn-xs">Unpaid</p>

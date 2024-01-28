@@ -1,4 +1,4 @@
-const RegisteredCamps = () => {
+const OurCamp = () => {
     return (
         <div>
             
@@ -6,4 +6,4 @@ const RegisteredCamps = () => {
     );
 };
 
-export default RegisteredCamps;
+export default OurCamp;

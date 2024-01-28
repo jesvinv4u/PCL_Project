@@ -39,7 +39,7 @@ const Navbar = () => {
         <li><Link to="/availableCamps">Available Camps</Link></li>
         <li><Link to="">Dashboard</Link></li>
         <li>
-            <Link to="/dashboard/ourCamp">
+            <Link to="/dashboard">
                 <button className="btn">
                     <FaNotesMedical className="mr-2 text-xl"></FaNotesMedical>
                     <div className="badge bg-blue-800">+{camp.length}</div>
