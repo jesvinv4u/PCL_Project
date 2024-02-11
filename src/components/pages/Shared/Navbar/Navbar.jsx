@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { FaBriefcaseMedical, FaGoogle, FaNotesMedical } from "react-icons/fa6";
+import { FaBriefcaseMedical, FaGithub, FaGoogle, FaNotesMedical } from "react-icons/fa6";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import useCamp from "../../../../Hooks/useCamp";
@@ -7,13 +7,29 @@ import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
 
 const Navbar = () => {
 
-    const { user, logOut, googleSignIn } = useContext(AuthContext);
+    const { user, logOut, googleSignIn, githubSignIn } = useContext(AuthContext);
     const [camp] = useCamp();
     const axiosPublic = useAxiosPublic();
     const navigate = useNavigate();
 
     const handleGoogleSignIn = () => {
         googleSignIn()
+            .then(result => {
+                console.log(result.user);
+                const userInfo = {
+                    email: result.user?.email,
+                    name: result.user?.displayName
+                }
+                axiosPublic.post('/users', userInfo)
+                    .then(res => {
+                        console.log(res.data);
+                        navigate('/');
+                    })
+            })
+    }
+
+    const handleGithubSignIn = () => {
+        githubSignIn()
             .then(result => {
                 console.log(result.user);
                 const userInfo = {
@@ -46,6 +62,7 @@ const Navbar = () => {
                 </button>
             </Link>
         </li>
+        <li><Link to="/wishlist">Wishlist</Link></li>
         <li><Link to="">Contact Us</Link></li>
     </>
 
@@ -86,7 +103,9 @@ const Navbar = () => {
                                 <Link className="btn btn-outline bg-slate-600 border-0 font-bold text-sm text-white ml-1" to='/login'>Login</Link>
                                 <Link className="btn btn-outline bg-slate-600 border-0 font-bold text-sm text-white ml-1" to='/signUp'>Sign up</Link>
                                 <button onClick={handleGoogleSignIn} className="btn btn-outline bg-slate-600 border-0 font-bold ml-1 text-sm text-white gap-2">
-                                    <FaGoogle></FaGoogle>Google Login</button>
+                                    <FaGoogle></FaGoogle>Google</button>
+                                <button onClick={handleGithubSignIn} className="btn btn-outline bg-slate-600 border-0 font-bold ml-1 text-sm text-white gap-2">
+                                    <FaGithub></FaGithub>Github</button>
                             </>
                     }
                 </div>
