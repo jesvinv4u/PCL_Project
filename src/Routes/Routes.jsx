@@ -19,7 +19,6 @@ import ProfileManagement from "../components/pages/ProfileManagement/ProfileMana
 import RegisteredCamps from "../components/pages/RegisteredCamps/RegisteredCamps";
 import FeedbackAndRatings from "../components/pages/FeedbackAndRatings/FeedbackAndRatings";
 import ProfessionalProfile from "../components/pages/ProfessionalProfile/ProfessionalProfile";
-import Wishlist from "../components/pages/Home/Wishlist/Wishlist";
 
 
 export const router = createBrowserRouter([
@@ -95,10 +94,6 @@ export const router = createBrowserRouter([
       {
         path: 'payment-history',
         element: <PaymentHistory></PaymentHistory>
-      },
-      {
-        path: 'wishlist',
-        element: <Wishlist></Wishlist>
       },
     ]
   },

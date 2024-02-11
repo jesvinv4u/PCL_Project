@@ -7,6 +7,7 @@ const AvailableCamps = () => {
 
     const [camps, setCamps] = useState([]);
     const [search, setSearch] = useState('');
+    console.log(search);
 
     useEffect(() => {
         fetch(`https://reset-assignment-12-server.vercel.app/camps?search=${search}`)
@@ -14,12 +15,12 @@ const AvailableCamps = () => {
             .then(data => setCamps(data))
     }, [])
 
-    const handleSearch = event => {
-        event.preventDefault();
-        const searchItem = event.target.name.value;
-        setSearch(searchItem);
-        // console.log(searchItem);
-    }
+    // const handleSearch = event => {
+    //     event.preventDefault();
+    //     const searchItem = event.target.name.value;
+    //     setSearch(searchItem);
+    //     // console.log(searchItem);
+    // }
 
     return (
         <>
@@ -31,13 +32,21 @@ const AvailableCamps = () => {
                     subHeading={"Here Is Our Available Camps"}
                     heading={"Camps"}
                 ></SectionTitle>
-                <form onSubmit={handleSearch} className="flex items-center justify-center">
-                    <input className="input input-bordered join-item rounded-r-none" placeholder="Search" name="name" />
-                    <button type="submit" className="btn join-item rounded-l-none">Search</button>
+
+
+                <form onChange={(e) => setSearch(e.target.value)} className="flex items-center justify-center">
+                    <input className="input input-bordered join-item rounded" placeholder="Search Camp" name="name" />
                 </form>
+
+
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2a lg:grid-cols-3 xl:grid-cols-3 max-w-full mx-auto gap-4 p-4">
                     {
-                        camps.map(camp => <div key={camp._id} className="card bg-base-100 shadow-xl border border-blue-500 m-12">
+                        camps.filter((item) => {
+                            return search.toLocaleLowerCase() === ''
+                                ? item
+                                : item.CampName.toLocaleLowerCase().includes(search)
+                        }).map(camp => <div key={camp._id} className="card bg-base-100 shadow-xl border border-blue-500 m-12">
                             <figure><img className="h-56" src={camp.Image} /></figure>
                             <div className="card-body">
                                 <h2 className="card-title">
