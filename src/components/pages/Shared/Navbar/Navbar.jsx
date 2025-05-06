@@ -79,7 +79,7 @@ const Navbar = () => {
                     </div>
                     <div className="flex gap-2">
                         <FaBriefcaseMedical className="w-12 h-12" />
-                        <p className="font-extrabold uppercase italic text-slate-800">Medical <br /> Camp</p>
+                        <p className="font-extrabold uppercase italic text-slate-800"><h1>MedCo</h1></p>
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
