@@ -1,6 +1,5 @@
 # PCL_Project
 
-```markdown
 # MedCo
 
 This project is a web application for managing medical campaigns built with React, Vite, and Firebase. It integrates Stripe for processing payments and an Express.js backend for server-side operations with MongoDB.
